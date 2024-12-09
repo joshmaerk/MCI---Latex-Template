@@ -1,0 +1,80 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[left=3.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{footmisc}
+\usepackage{hyperref}
+\usepackage{etoolbox}
+
+% Schriftart und Zeilenabstand
+\renewcommand{\familydefault}{\sfdefault} % Schriftart (Arial-ähnlich)
+\setlength{\parindent}{0pt} % Kein Absatzeinzug
+\setlength{\parskip}{0.5em} % Abstand zwischen Absätzen
+\onehalfspacing % Zeilenabstand 1,5
+
+% Überschriftenabstände
+\titlespacing\chapter{0pt}{0pt}{1cm}
+\titlespacing\section{0pt}{1cm}{0.5cm}
+\titlespacing\subsection{0pt}{0.5cm}{0.3cm}
+
+% Fußnotenformat
+\renewcommand{\footnotelayout}{\setstretch{1}} % Zeilenabstand in Fußnoten
+
+% Kopf-/Fußzeilen
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Name der Arbeit}
+\fancyhead[R]{\thepage}
+
+% Kapitelüberschrift ohne "Chapter"
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries} % Format der Schrift
+  {\thechapter.} % Nummerierung des Kapitels mit Punkt
+  {1em} % Abstand zwischen Nummer und Titel
+  {}
+
+\usepackage{caption} % Paket für Beschriftungen
+
+% Beschriftungsformat für Tabellen anpassen
+\captionsetup[table]{
+    labelformat=simple,
+    labelsep=colon, % Trennt "Tabelle Nr" und Titel mit einem Doppelpunkt
+    name=Tabelle % Festlegen des Präfixes für die Beschriftung
+}
+
+% Nummerierung der Tabellen ohne Abschnittsnummer
+\renewcommand{\thetable}{\arabic{table}} % Tabellen nur fortlaufend nummerieren
+
+% Beschriftungsformat für Abbildungen anpassen
+\captionsetup[figure]{
+    labelformat=simple,
+    labelsep=colon, % Trennt "Abbildung Nr" und Titel mit einem Doppelpunkt
+    name=Abbildung % Festlegen des Präfixes für die Beschriftung
+}
+
+% Nummerierung der Abbildungen ohne Abschnittsnummer
+\renewcommand{\thefigure}{\arabic{figure}} % Abbildungen nur fortlaufend nummerieren
+
+\usepackage{tocloft} % Für Anpassungen im Inhalts-, Abbildungs- und Tabellenverzeichnis
+
+% Anpassung des Tabellenverzeichnisses
+\renewcommand{\cfttablename}{Tabelle} % Präfix "Tabelle" hinzufügen
+\renewcommand{\cfttabpresnum}{\cfttablename\enspace} % Präfix vor der Nummer
+\renewcommand{\cfttabaftersnum}{:} % Doppelpunkt nach der Nummer
+\setlength{\cfttabnumwidth}{6em} % Erhöhte Breite für "Tabelle Nr" im Verzeichnis
+
+% Anpassung des Abbildungsverzeichnisses
+\renewcommand{\cftfigurename}{Abbildung} % Präfix "Abbildung" hinzufügen
+\renewcommand{\cftfigpresnum}{\cftfigurename\enspace} % Präfix vor der Nummer
+\renewcommand{\cftfigaftersnum}{:} % Doppelpunkt nach der Nummer
+\setlength{\cftfignumwidth}{6em} % Erhöhte Breite für "Abbildung Nr" im Verzeichnis
+
+% Anpassung der Verzeichnisüberschriften
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\renewcommand{\listfigurename}{Abbildungsverzeichnis}
+\renewcommand{\listtablename}{Tabellenverzeichnis}
+\renewcommand{\bibname}{Literaturverzeichnis}

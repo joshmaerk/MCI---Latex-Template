@@ -1,0 +1,74 @@
+\input{A_Template/00_Main}
+\input{variables} % Lädt die Variablen aus der Datei variables.tex
+
+\begin{document}
+
+% Sperrvermerk
+\input{A_Template/02_sperrvermerk}
+\thispagestyle{empty}
+
+% Deckblatt
+\begin{titlepage}
+    \raggedright % Flattersatz nur für das Deckblatt
+    \input{A_Template/01_deckblatt} % Einbindung der ausgelagerten Datei
+\end{titlepage}
+\thispagestyle{empty}
+
+% Einfügen der Eidesstattlichen Erklärung
+\input{A_Template/03_eidesstattliche_erklaerung}
+\thispagestyle{empty}
+
+% Einfügen der Kurzfassung/Abstract
+\input{A_Template/04_abstract}
+\thispagestyle{empty}
+
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+
+% Inhaltsverzeichnis mit Seitennummerierung starten
+\pagenumbering{Roman} % Römische Zahlen starten
+\setcounter{page}{1}  % Startet die Nummerierung bei 1
+\tableofcontents
+\newpage
+
+% Abbildungsverzeichnis
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename} % Zum Inhaltsverzeichnis hinzufügen
+\newpage
+
+% Tabellenverzeichnis
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename} % Zum Inhaltsverzeichnis hinzufügen
+\newpage
+
+% Abkürzungsverzeichnis
+\chapter*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\input{A_Template/06_abkuerzungsverzeichnis}
+
+% Arabische Seitennummerierung für den Hauptteil
+\pagenumbering{arabic}
+\setcounter{page}{1} % Startet die arabische Nummerierung bei 1
+
+%######### KAPITEL EINFÜGEN ##############
+\input{C_Inhalt/01_chapter1}
+\input{C_Inhalt/02_chapter2}
+%###### KAPITEL EINFÜGEN ENDE ############
+
+% Erklärung zu generativer KI
+\chapter*{Erklärung zu generativer KI und KI-gestützten Technologien}
+\addcontentsline{toc}{chapter}{Erklärung zu generativer KI und KI-gestützten Technologien}
+\input{A_Template/99_author_contribution} % Einbindung der ausgelagerten Datei
+
+% Literaturverzeichnis
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliographystyle{apalike}
+\bibliography{B_Literatur/100_literatur} % Pfad zur Literaturdatenbank
+
+% Anhang
+\appendix
+\chapter{Anhang}
+Zusätzliche Materialien.
+
+\end{document}
