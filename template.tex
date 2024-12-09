@@ -62,9 +62,7 @@
 \input{A_Template/99_author_contribution} % Einbindung der ausgelagerten Datei
 
 % Literaturverzeichnis
-\addcontentsline{toc}{chapter}{\bibname}
-\bibliographystyle{apalike}
-\bibliography{B_Literatur/100_literatur} % Pfad zur Literaturdatenbank
+\printbibliography[heading=bibintoc] % Fügt die Bibliographie mit Kapitelüberschrift ins Inhaltsverzeichnis ein
 
 % Anhang
 \appendix
